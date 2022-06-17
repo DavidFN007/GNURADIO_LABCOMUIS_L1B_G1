@@ -1,0 +1,43 @@
+id: Lab5
+label: ModuladorPam
+category: '[Modulos_D1B_G1]'
+
+parameters:
+-   id: d
+    label: Ancho del pulso
+    dtype: int
+    default: '10'
+    hide: none
+-   id: fs
+    label: 'Frecuencia '
+    dtype: raw
+    default: '100000'
+    hide: none
+-   id: samp_rate
+    label: Frecuencia de muestreo
+    dtype: raw
+    default: '100000'
+    hide: none
+
+inputs:
+-   label: in
+    dtype: float
+    vlen: 1
+
+outputs:
+-   label: out
+    dtype: float
+    vlen: 1
+
+templates:
+    imports: 'from Lab5 import Lab5  # grc-generated hier_block'
+    make: "Lab5(\n    d=${ d },\n    fs=${ fs },\n    samp_rate=${ samp_rate },\n)"
+    callbacks:
+    - set_d(${ d })
+    - set_fs(${ fs })
+    - set_samp_rate(${ samp_rate })
+
+documentation: /home/labcom/Documentos/Grupo_1_D1B/Lab5.py
+grc_source: /home/labcom/Documentos/Grupo_1_D1B/Lab5.grc
+
+file_format: 1
